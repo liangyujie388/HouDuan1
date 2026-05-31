@@ -2,13 +2,13 @@
 
 ## 功能概览
 - Spring Boot REST API，提供用户注册/登录、风险评估、诈骗场景查询、举报信息提交与列表。
-- 用户与举报数据目前用内存 `ConcurrentHashMap` 保存，服务重启会丢失；未使用数据库持久化。
-- `SecurityConfig` 已开启 CORS（允许任意来源），CSRF 关闭，接口对外开放。
+- 用户与举报数据目前用内存 `ConcurrentHashMap` 保存，服务重启会丢失；未使用数据库持久化（仅适合开发/演示，生产需替换为持久化存储）。
+- `SecurityConfig` 已开启 CORS（允许任意来源），CSRF 关闭，接口对外开放（生产环境应限制允许的来源并按需开启防护）。
 
 ## 前端对接要点
 - 先运行后端并确认 Base URL（默认 `http://localhost:8080`）。
 - 前端使用 JSON 请求（`Content-Type: application/json`）。
-- 若前端有跨域，当前已放开 CORS；如需限制来源再调整后端允许的 origin。
+- 若前端有跨域，当前已放开 CORS；生产环境应限制来源并调整后端允许的 origin。
 - 开发时可在前端配置代理指向后端 Base URL，生产环境用同域或网关转发。
 
 ## 接口列表
